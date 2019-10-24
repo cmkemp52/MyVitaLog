@@ -13,6 +13,7 @@ require("dotenv").config();
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const infoRouter = require('./routes/info');
 
 
 app.engine('html',es6Renderer);
@@ -36,5 +37,7 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/info', infoRouter);
 
 module.exports = app;
+
