@@ -1,0 +1,16 @@
+<section>
+    <form action="/foodlog/search" method="POST">
+        <label>Add Entry:
+            <input type="text" name="search">
+        </label>
+        <button type="submit">Search</button>
+    </form>
+    <hr>
+    ${searchResults ? `
+        <ul>
+        ${searchResults.map(food => `
+            <li><h2>${food.description}</h2><p>${food.brandOwner}</p></li>
+            `).join('')}
+        </ul>
+    `:""}
+</section>
