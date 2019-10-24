@@ -7,6 +7,7 @@ router.get('/', async(req, res, next)=>{
     res.render('template',{
         locals: {
         title: 'Food Log',
+        searchResults: false,
         isLoggedIn: req.session.is_logged_in
         },
         partials:{
