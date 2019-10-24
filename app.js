@@ -13,6 +13,7 @@ require("dotenv").config();
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const foodlogRouter = require('./routes/foodlog');
 
 
 app.engine('html',es6Renderer);
@@ -36,5 +37,6 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/foodlog', foodlogRouter);
 
 module.exports = app;
