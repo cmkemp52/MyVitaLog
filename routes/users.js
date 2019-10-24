@@ -31,7 +31,7 @@ router.post("/sign-up", async(req,res,next)=>{
   const user = new UserModel(account_name, email_address, hash);
   const addUser = await user.save();
   if(addUser){
-    res.status(200).redirect("/");
+    res.status(200).redirect("/users");
   } else {
     res.status(500);
   }
@@ -46,7 +46,7 @@ router.post("/login", async(req,res,next)=>{
     const {account_name} = response;
     req.session.is_logged_in = true;
     req.session.account_name = account_name;
-    res.status(200).redirect("/");
+    res.status(200).redirect("/foodlog");
   } else{
     res.sendStatus(401);
   }

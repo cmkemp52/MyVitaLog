@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="./stylesheets/style.css">
     </head>
     <body>
-        <nav class="menu--main"> ${!!isLoggedIn ? `<a href="/users">Logout</a>` : `<a href="/users">Login</a><a href="/users/sign-up">Sign up</a>`}
+        <nav class="menu--main"> ${!!isLoggedIn ? `<a href="/users/logout">Logout</a>` : `<a href="/users">Login</a><a href="/users">Sign up</a>`}
         </nav>
         <main>${partial}</main>
         
