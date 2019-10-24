@@ -1,8 +1,7 @@
 {
   "name": "nutritionproject",
-  "version": "0.0.1",
-  "description": "A website designed to track nutrition",
-  "main": "index.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www"
