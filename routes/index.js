@@ -6,7 +6,8 @@ router.get('/', async (req, res, next) => {
   
   res.render('template', {
     locals: {
-      title: "MyVitaLog"
+      title: "MyVitaLog",
+      isLoggedIn: req.session.is_logged_in
     },
     partials: {
       partial: "partial-index"
