@@ -10,7 +10,8 @@
         <ul>
         ${searchResults.map(food => `
             <li><form action="/foodlog/nutritiondata" method="POST">
-                <h2 name="id" value="this" >${food.description}</h2><p>${food.brandOwner}</p></li>
+                <h2>${food.description}</h2><p>${food.brandOwner}</p></li>
+                <input type="hidden" name="id" value="${food.fdcId}"/>
                 <button type="submit">Food info</button>
             </form>
             `).join('')}
