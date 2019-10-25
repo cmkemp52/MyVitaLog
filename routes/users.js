@@ -30,6 +30,7 @@ router.post("/sign-up", async(req,res,next)=>{
 
   const user = new UserModel(account_name, email_address, hash);
   const addUser = await user.save();
+  console.log(addUser);
   if(addUser){
     res.status(200).redirect("/users");
   } else {
