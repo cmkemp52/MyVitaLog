@@ -30,7 +30,18 @@ class User{
         try{
             const response = await db.one(`INSERT INTO users (account_name, email, password) 
             VALUES ($1, $2, $3) RETURNING id;`, [this.account_name,this.email_address,this.password]);
-            console.log(response);
+            const tableadd = await db.one(`CREATE TABLE userLog_id${response.id} (
+                id serial primary key,
+                name varchar(300),
+                created DATE NOT NULL DEFAULT (CURRENT_DATE),
+                calories float,
+                protein float,
+                sugar float,
+                cholesterol float,
+                fiber float
+            );`,[]);
+            console.log(response.id);
+            console.log(tableadd);
             return response;
         }catch(err){
             return err.message;

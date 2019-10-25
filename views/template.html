@@ -10,9 +10,107 @@
         <link rel="stylesheet" href="./stylesheets/style.css">
     </head>
     <body>
-        <nav class="menu--main"> ${!!isLoggedIn ? `<a href="/users/logout">Logout</a>` : `<a href="/users">Login</a><a href="/users">Sign up</a>`}
-        </nav>
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                    <div class="navbar-brand">
+                    <a class="navbar-item" href="/">
+                        <img src="./images/myvitalog-logo.png" width="112" height="28">
+                    </a>
+
+                    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                    </div>
+
+                    <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="/">
+                        Home
+                        </a>
+
+                        <a class="navbar-item">
+                        Documentation
+                        </a>
+
+                        <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            More
+                        </a>
+
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item">
+                            About
+                            </a>
+                            <a class="navbar-item">
+                            Jobs
+                            </a>
+                            <a class="navbar-item">
+                            Contact
+                            </a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item">
+                            Report an issue
+                            </a>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                        <div class="buttons">
+                            ${!!isLoggedIn ? `
+                            <a class="button is-success" href="/users/logout">
+                            <strong>Logout</strong>
+                            </a>` 
+                            : 
+                            `<a class="button is-success" href="/users">Sign Up</a>
+                            <a class="button is-light" href="/users">
+                            Log in
+                            </a>
+                        `}
+                    </div>
+                        </div>
+                    </div>
+                    </div>
+                </nav>
         <main>${partial}</main>
-        
+        <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>
+                        <strong>MyVitalog</strong> by:
+                    </p>
+                    <div class="columns is-centered">
+                        <div class="column"></div>
+                        <div class="column">
+                                <figure class="image is-128x128">
+                                        <img class="is-rounded" src="./images/KempCProfile.jpeg">
+                                        <figcaption>Christopher Kemp</figcaption>
+                                        <figcaption><a href="https://www.linkedin.com/in/cmkemp52/">LinkedIn</a></figcaption>
+                                        <figcaption><a href="https://github.com/cmkemp52">GitHub</a></figcaption>
+                                </figure>
+                        </div>
+                        <div class="column">
+                                <figure class="image is-128x128">
+                                        <img class="is-rounded" src="./images/WilliamsGProfile.jpeg">
+                                        <figcaption>Gilford Williams</figcaption>
+                                        <figcaption><a href="https://www.linkedin.com/in/gilford-williams-938279192/">LinkedIn</a></figcaption>
+                                        <figcaption><a href="https://github.com/GilliamD">GitHub</a></figcaption>
+                                </figure>
+                        </div>
+                        <div class="column">
+                            <figure class="image is-128x128">
+                                <img class="is-rounded" src="./images/BlacknallWProfile.JPG">
+                                <figcaption>William Blacknall</figcaption>
+                                <figcaption><a href="https://www.linkedin.com/in/william-blacknall-9509a5116/">LinkedIn</a></figcaption>
+                                <figcaption><a href="https://github.com/BlacknallW">GitHub</a></figcaption>
+                            </figure>
+                        </div>
+                        <div class="column"></div>
+                    </div>
+                </div>
+                
+                
+            </footer>
     </body>
 </html>
