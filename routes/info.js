@@ -2,8 +2,16 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-    res.send('respond with a resource');
+router.get('/', async(req, res, next) => {
+    res.render('template', {
+        locals: {
+        title: "Nutrition info",
+        isLoggedIn: req.session.is_logged_in
+        },
+        partials: {
+        partial: "partial-info"
+        }
+    });
 });
 
 module.exports = router;
