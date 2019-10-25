@@ -19,10 +19,8 @@ router.get('/', async(req, res, next)=>{
 });
 
 router.post("/search", async(req,res,next)=>{
-    console.log(req.body);
     const {search} = req.body;
     const searchRes = await foodSearch(search);
-    console.log(searchRes);
     res.render('template',{
         locals: {
         title: 'Food Log',
@@ -39,7 +37,6 @@ router.post("/search", async(req,res,next)=>{
 router.post("/nutritiondata", async(req,res,next)=>{
     const {id} = req.body;
     const foodInfo = await foodData(id);
-    console.log(foodInfo);
     res.render('template',{
         locals: {
         title: 'Food Log',
@@ -51,6 +48,11 @@ router.post("/nutritiondata", async(req,res,next)=>{
         partial: 'partial-foodlog'
         }
     });
+});
+
+router.post("/log", async(req,res,next)=>{
+    console.log(req.body);
+    res.status(200).redirect("/");
 });
 
 module.exports = router;

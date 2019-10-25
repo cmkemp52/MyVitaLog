@@ -33,6 +33,7 @@ class User{
             const tableadd = await db.one(`CREATE TABLE userLog_id${response.id} (
                 id serial primary key,
                 name varchar(300),
+                brand varchar (200),
                 created DATE NOT NULL DEFAULT (CURRENT_DATE),
                 calories float,
                 protein float,
@@ -40,8 +41,6 @@ class User{
                 cholesterol float,
                 fiber float
             );`,[]);
-            console.log(response.id);
-            console.log(tableadd);
             return response;
         }catch(err){
             return err.message;
