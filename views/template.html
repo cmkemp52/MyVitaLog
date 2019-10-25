@@ -60,11 +60,11 @@
                         <div class="navbar-item">
                         <div class="buttons">
                             ${!!isLoggedIn ? `
-                            <a class="button is-primary" href="/users/logout">
+                            <a class="button is-success" href="/users/logout">
                             <strong>Logout</strong>
                             </a>` 
                             : 
-                            `<a class="button is-primary" href="/users">Sign Up</a>
+                            `<a class="button is-success" href="/users">Sign Up</a>
                             <a class="button is-light" href="/users">
                             Log in
                             </a>
@@ -75,5 +75,12 @@
                     </div>
                 </nav>
         <main>${partial}</main>
+        <footer class="footer">
+                <div class="content has-text-centered">
+                <p>
+                    <strong>MyVitalog</strong> by <a href="https://www.linkedin.com/in/cmkemp52/">Christopher Kemp</a>, <a href="https://www.linkedin.com/in/gilford-williams-938279192/">Gilford Williams</a>, and <a href="https://www.linkedin.com/in/william-blacknall-9509a5116/">William Blacknall</a> 
+                </p>
+                </div>
+            </footer>
     </body>
 </html>
