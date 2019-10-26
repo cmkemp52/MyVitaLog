@@ -1,7 +1,8 @@
 const express = require('express'),
     router = express.Router(),
     foodSearch = require('../models/searchModel'),
-    foodData = require('../models/nutritionModel.js');
+    foodData = require('../models/nutritionModel'),
+    logAdd = require('../models/logAdd');
 
 
 router.get('/', async(req, res, next)=>{
@@ -51,7 +52,7 @@ router.post("/nutritiondata", async(req,res,next)=>{
 });
 
 router.post("/log", async(req,res,next)=>{
-    console.log(req.body);
+    logAdd(req.body);
     res.status(200).redirect("/");
 });
 
