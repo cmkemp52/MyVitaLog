@@ -22,12 +22,16 @@
         <h3>${info.brandOwner}</h3>
         <h6>${info.ingredients}</h6>
         <form action="/foodlog/log" method="POST">
+            <input type="hidden" name="name" value="${info.description}"/>
+            <input type="hidden" name="brand" value="${info.brandOwner}"/>
             <button type="submit">Add to Log</button>
+            <ul>
+            ${info.foodNutrients.map(nutrient => (
+                `<li><h2>${nutrient.nutrient.name}</h2><p>${nutrient.amount} ${nutrient.nutrient.unitName}</p></li>
+                <input type="hidden" name="${nutrient.nutrient.name}" value="${nutrient.amount}"/>
+                `)).join('')}
+            </ul>
+            
         </form>
-        <ul>
-        ${info.foodNutrients.map(nutrient => `
-            <li><h2>${nutrient.nutrient.name}</h2><p>${nutrient.amount} ${nutrient.nutrient.unitName}</p></li>
-            `).join('')}
-        </ul>
     `:""}
 </section>
