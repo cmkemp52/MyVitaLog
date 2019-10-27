@@ -44,9 +44,9 @@ router.post("/login", async(req,res,next)=>{
   const response = await user.login();
   console.log(response);
   if(!!response.isValid){
-    const {id} = response;
+    const account_id = response.account_id;
     req.session.is_logged_in = true;
-    req.session.id = id;
+    req.session.account_id = account_id;
     res.status(200).redirect("/foodlog");
   } else{
     res.sendStatus(401);

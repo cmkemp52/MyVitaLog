@@ -13,11 +13,11 @@ class User{
 
     async login(){  
         try{
-            const response = await db.one(`SELECT account_name, password FROM users WHERE email = $1;`,[this.email_address]);
+            const response = await db.one(`SELECT account_name, password, id FROM users WHERE email = $1;`,[this.email_address]);
             const isValid = this.checkPassword(response.password);
             if(!!isValid){
-                const {account_name} = response;
-                return {isValid, account_name}
+                const account_id = response.id;
+                return {isValid, account_id}
                 ;
             } else {
                 return {isValid};
@@ -33,14 +33,22 @@ class User{
             const tableadd = await db.one(`CREATE TABLE userLog_id${response.id} (
                 id serial primary key,
                 name varchar(300),
-                brand varchar (200),
-                created DATE NOT NULL DEFAULT (CURRENT_DATE),
+                brand varchar (300),
+                loggedAt TIMESTAMP DEFAULT (CURRENT_TIMESTAMP),
                 calories float,
-                protein float,
-                sugar float,
+                fat float,
+                satfat float,
+                transfat float,
                 cholesterol float,
-                fiber float
+                sodium float,
+                carbohydrates float,
+                fiber float,
+                sugars float,
+                protein float,
+                calcium float,
+                iron float
             );`,[]);
+            console.log(tableadd);
             return response;
         }catch(err){
             return err.message;

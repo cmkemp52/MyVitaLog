@@ -52,7 +52,7 @@ router.post("/nutritiondata", async(req,res,next)=>{
 });
 
 router.post("/log", async(req,res,next)=>{
-    logAdd(req.body);
+    logAdd(Object.entries(req.body), req.session.account_id);
     res.status(200).redirect("/");
 });
 
