@@ -8,17 +8,19 @@
 </section>
 <div class="tabs">
         <ul>
-            <li class="is-active" onclick="openTab('Vitamins')"><a>Vitamins</a></li>
+            <li onclick="openTab('Vitamins')"><a>Vitamins</a></li>
             <li onclick="openTab('Minerals')"><a>Minerals</a></li>
-            <li onclick="openTab('Videos')"><a>Videos</a></li>
-            <li onclick="openTab('Documents')"><a>Documents</a></li>
+            <li onclick="openTab('Proteins')"><a>Proteins</a></li>
+            <li onclick="openTab('Fats')"><a>Fats</a></li>
+            <li onclick="openTab('Carbohydrates')"><a>Carbohydrates</a></li>
         </ul>
 </div>
 
 <div id="Vitamins" class="info-tab">
     <section class="container">
+        
         <table class="table is-bordered is-hoverable">
-                <tr>
+                <tr class="is-selected">
                     <th>VITAMIN</th>
                     <th>WHAT IT DOES</th>
                     <th>DEFICIENCIES</th>
@@ -27,7 +29,7 @@
                     <th>DAILY VALUE*</th>
                     </tr>
                 <tr>
-                    <td>Vitamin A <br>AKA: Retinol, retinal, and four carotenoids, including beta carotene</td>
+                    <td>Vitamin A</td>
                     <td>•	Growth	and	development
                         •	Immune	function
                         •	Reproduction
@@ -49,7 +51,7 @@
                     <td>5,000	IU</td>
                 </tr>
                 <tr>
-                    <td>Vitamin B <br>AKA: thiamine</td>
+                    <td>Vitamin B1 (Thiamine)</td>
                     <td>•	Conversion	of	food	into	energy
                         •	Nervous	system	function</td>
                     <td>Beriberi, edema, peripheral neuropathies/hot feet, lactic acidosis with carbohydrate</td>
@@ -64,7 +66,7 @@
                     <td>1.5	mg</td>
                 </tr>
                 <tr>
-                    <td>Vitamin B2 <br>AKA: Riboflavin</td>
+                    <td>Vitamin B2 (Riboflavin)</td>
                     <td>Ki</td>
                     <td>Senzu</td>
                     <td>Ki</td>
@@ -72,7 +74,25 @@
                     <td>Ki</td>
                 </tr>
                 <tr>
-                    <td>Vitamin B3<br>AKA: Niacin, niacinamide</td>
+                    <td>Vitamin B3 (Niacin)</td>
+                    <td>Ki</td>
+                    <td>Senzu</td>
+                    <td>Ki</td>
+                    <td>
+                            Avocado,
+                            Eggs,
+                            Enriched breads and fortified cereals,
+                            Fish (tuna and salt-water fish),
+                            Lean meats,
+                            Legumes,
+                            Nuts,
+                            Potato,
+                            Poultry,
+                    </td>
+                    <td>Ki</td>
+                </tr>
+                <tr>
+                    <td>Vitamin B5 (Pantothenic Acid)</td>
                     <td>Ki</td>
                     <td>Senzu</td>
                     <td>Ki</td>
@@ -80,7 +100,7 @@
                     <td>Ki</td>
                 </tr>
                 <tr>
-                    <td>Vitamin B5<br>AKA: Pantothenic acid</td>
+                    <td>Vitamin B6 (Pyridoxine)</td>
                     <td>Ki</td>
                     <td>Senzu</td>
                     <td>Ki</td>
@@ -88,7 +108,7 @@
                     <td>Ki</td>
                 </tr>
                 <tr>
-                    <td>Vitamin B6<br>AKA: Pyridoxine, pyridoxamine, pyridoxal</td>
+                    <td>Vitamin B7 (Biotin)</td>
                     <td>Ki</td>
                     <td>Senzu</td>
                     <td>Ki</td>
@@ -96,7 +116,7 @@
                     <td>Ki</td>
                 </tr>
                 <tr>
-                    <td>Vitamin B7<br>AKA: Biotin</td>
+                    <td>Vitamin B9 (Folic Acid/Folate)</td>
                     <td>Ki</td>
                     <td>Senzu</td>
                     <td>Ki</td>
@@ -104,7 +124,15 @@
                     <td>Ki</td>
                 </tr>
                 <tr>
-                    <td>Vitamin B9<br>AKA: Folic acid, folinic acid</td>
+                    <td>Vitamin B12 (Cyanocobalamin)</td>
+                    <td>Ki</td>
+                    <td>Senzu</td>
+                    <td>Ki</td>
+                    <td>Senzu</td>
+                    <td>Ki</td>
+                </tr>                
+                <tr>
+                    <td>Vitamin C (Ascorbic Acid)</td>
                     <td>Ki</td>
                     <td>Senzu</td>
                     <td>Ki</td>
@@ -112,7 +140,7 @@
                     <td>Ki</td>
                 </tr>
                 <tr>
-                    <td><br>AKA:</td>
+                    <td>Vitamin D</td>
                     <td>Ki</td>
                     <td>Senzu</td>
                     <td>Ki</td>
@@ -120,7 +148,7 @@
                     <td>Ki</td>
                 </tr>
                 <tr>
-                    <td><br>AKA:</td>
+                    <td>Vitamin E (Tocopherol)</td>
                     <td>Ki</td>
                     <td>Senzu</td>
                     <td>Ki</td>
@@ -128,36 +156,21 @@
                     <td>Ki</td>
                 </tr>
                 <tr>
-                    <td><br>AKA:</td>
+                    <td>Vitamin K</td>
                     <td>Ki</td>
                     <td>Senzu</td>
                     <td>Ki</td>
                     <td>Senzu</td>
                     <td>Ki</td>
                 </tr>
-                <tr>
-                    <td><br>AKA:</td>
-                    <td>Ki</td>
-                    <td>Senzu</td>
-                    <td>Ki</td>
-                    <td>Senzu</td>
-                    <td>Ki</td>
-                </tr>
-                <tr>
-                    <td><br>AKA:</td>
-                    <td>Ki</td>
-                    <td>Senzu</td>
-                    <td>Ki</td>
-                    <td>Senzu</td>
-                    <td>Ki</td>
-                </tr>
+
             </table>
     </section>
 </div>
 <div id="Minerals" style="display: none;" class="info-tab">
     <section class="container">
         <table class="table is-bordered is-hoverable">    
-                <tr>
+                <tr class="is-selected">
                     <th>MINERAL</th>
                     <th>WHAT IT DOES</th>
                     <th>DEFICIENCIES</th>
@@ -300,9 +313,12 @@
             </table>
     </section>
 </div>
-<div id="Videos" style="display: none;" class="info-tab">
+<div id="Proteins" style="display: none;" class="info-tab">
     <p>Videos of the Terror Dome</p>
 </div>
-<div id = "Documents" style="display: none;" class="info-tab">
+<div id = "Fats" style="display: none;" class="info-tab">
     <p>Read about the Terror Dome</p>
+</div>
+<div id="Carbohydrates" style="display: none;" class="info-tab">
+    <p>HNNNNNNNNNNNNGH TERROR DOME</p>
 </div>
