@@ -1,24 +1,44 @@
-<form action="/users/login" method="POST">
-    <label>Email Address
-        <input type="text" name="email_address">
-    </label>
-    <label>Password
-            <input type="password" name="password">
-    </label>
-    <button type="submit">Login</button>
-</form>
-<hr>
-
-<h3>Sign up</h3>
-<form action="/users/sign-up" method="POST">
-    <label>Account Name
-        <input type="text" name="account_name">
-    </label>
-    <label>Email Address
-        <input type="text" name="email_address">
-    </label>
-    <label>Password
-        <input type="password" name="password">
-    </label>
-    <button type="submit">Create</button>
-</form>
+<section>
+        <div class="tile is-ancestor has-text-justified">
+                <div class="tile is-parent">
+                    <div class="tile is-child box">
+                        <p class="title">Sign Up</p>
+                        <div class="content">
+                                <div class="field">
+                                        <div class="control">
+                                            <form action="/users/sign-up" method="POST" class="form">
+                                                <label class="label">Account Name
+                                                    <input type="text" name="account_name" class="input">
+                                                </label>
+                                                <label class="label">Email Address
+                                                    <input type="text" name="email_address" class="input">
+                                                </label>
+                                                <label class="label">Password
+                                                    <input type="password" name="password" class="input">
+                                                </label>
+                                                <button type="submit" class="button is-success">Create</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                        </div>
+                    </div>
+                    <div class="tile is-child box">
+                        <p class="title">Login</p>
+                            <h3 class="Login"></h3>
+                            <div class="field">
+                                <div class="control">
+                                    <form action="/users/login" method="POST" class="form">
+                                        <label class="label">Email Address
+                                            <input type="text" name="email_address" class="input">
+                                        </label>
+                                        <label class="label">Password
+                                                <input type="password" name="password" class="input">
+                                        </label>
+                                        <button type="submit" class="button is-success">Login</button>
+                                    </form>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+        </div>
+</section>
