@@ -13,7 +13,7 @@
             <div id="searchAddResults">
             ${searchResults.map(food => `
                 ${food.brandOwner ? `
-                <div id="searchResult"><form action="/foodlog/nutritiondata" method="POST">
+                <div id="searchResult"><form action="/foodlog/nutritiondata" method="POST" id="searchForm">
                     <h2>${food.description}</h2><p>${food.brandOwner}</p></li>
                     <input type="hidden" name="id" value="${food.fdcId}"/>
                     <button type="submit">Food info</button>
