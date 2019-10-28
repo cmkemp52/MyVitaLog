@@ -1,0 +1,44 @@
+<section>
+    <form action="/foodlog/search" method="POST">
+        <label>Add Entry:
+            <input type="text" name="search">
+        </label>
+        <button type="submit">Search</button>
+    </form>
+    <hr>
+    ${searchResults ? `
+        <ul>
+        ${searchResults.map(food => `
+            <li><form action="/foodlog/nutritiondata" method="POST">
+                <h2>${food.description}</h2>${food.brandOwner ? `<p>${food.brandOwner}</p>`:"<p>Unbranded</p>"}</li>
+                <input type="hidden" name="id" value="${food.fdcId}"/>
+                <button type="submit">Food info</button>
+            </form>
+            `).join('')}
+        </ul>
+    `:""}
+    ${info ? `
+        <form action="/foodlog/log" method="POST">
+            <input type="hidden" name="name" value="${info.description}"/><h1>${info.description}</h1>
+            <input type="hidden" name="brand" value="${info.brandOwner}"/><h3>${info.brandOwner}</h3>
+            <p>Serving size: ${info.householdServingFullText}</p>
+            <button type="submit">Add to Log</button>
+            <p>Servings to add to log:</p><input type="number" name="servings" value="1"> 
+            <input type="hidden" name="calories" value="${Math.round(info.labelNutrients.calories.value)}"/><p>Calories: ${Math.round(info.labelNutrients.calories.value)}</p>
+            ${info.labelNutrients.fat ? `<input type="hidden" name="fat" value="${Math.round(info.labelNutrients.fat.value)}"/><p>Total Fat: ${Math.round(info.labelNutrients.fat.value)}g</p>`:""}
+            ${info.labelNutrients.saturatedFat ? `<input type="hidden" name="satfat" value="${Math.round(info.labelNutrients.saturatedFat.value)}"/><p>Saturated Fat: ${Math.round(info.labelNutrients.saturatedFat.value)}g</p>`:""}
+            ${info.labelNutrients.transFat ? `<input type="hidden" name="transfat" value="${Math.round(info.labelNutrients.transFat.value)}"/><p>Trans Fat: ${Math.round(info.labelNutrients.transFat.value)}g</p>`:""}
+            ${info.labelNutrients.cholesterol ? `<input type="hidden" name="cholesterol" value="${Math.round(info.labelNutrients.cholesterol.value)}"/><p>Cholesterol: ${Math.round(info.labelNutrients.cholesterol.value)}mg</p>`:""}
+            ${info.labelNutrients.sodium ? `<input type="hidden" name="sodium" value="${Math.round(info.labelNutrients.sodium.value)}"/><p>Sodium: ${Math.round(info.labelNutrients.sodium.value)}mg</p>`:""}
+            ${info.labelNutrients.carbohydrates ? `<input type="hidden" name="carbohydrates" value="${Math.round(info.labelNutrients.carbohydrates.value)}"/><p>Carbohydrates: ${Math.round(info.labelNutrients.carbohydrates.value)}g</p>`:""}
+            ${info.labelNutrients.fiber ? `<input type="hidden" name="fiber" value="${Math.round(info.labelNutrients.fiber.value)}"/><p>Fiber: ${Math.round(info.labelNutrients.fiber.value)}g</p>`:""}
+            ${info.labelNutrients.sugars ? `<input type="hidden" name="sugars" value="${Math.round(info.labelNutrients.sugars.value)}"/><p>Sugar: ${Math.round(info.labelNutrients.sugars.value)}g</p>`:""}
+            ${info.labelNutrients.protein ? `<input type="hidden" name="protein" value="${Math.round(info.labelNutrients.protein.value)}"/><p>Protein: ${Math.round(info.labelNutrients.protein.value)}g</p>`:""}
+            ${info.labelNutrients.calcium ? `<input type="hidden" name="calcium" value="${Math.round(info.labelNutrients.calcium.value)}"/><p>Calcium: ${Math.round(info.labelNutrients.calcium.value)}mg</p>`:""}
+            ${info.labelNutrients.iron ? `<input type="hidden" name="iron" value="${Math.round(info.labelNutrients.iron.value)}"/><p>Iron: ${Math.round(info.labelNutrients.iron.value)}mg</p>`:""}
+            <p>Ingredients:</p>
+            <p>${info.ingredients}</p>
+            
+        </form>
+    `:""}
+</section>
