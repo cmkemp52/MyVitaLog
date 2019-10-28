@@ -6,6 +6,7 @@ async function foodsearch(input, page = 1){
         requireAllWords: "true",
         page:`${page}`
     })
+    console.log(response.data.foods);
     return response.data.foods;
 
 }

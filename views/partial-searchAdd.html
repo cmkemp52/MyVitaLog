@@ -28,7 +28,7 @@
             <p>Serving size: ${info.householdServingFullText}</p>
             <button type="submit">Add to Log</button>
             <p>Servings to add to log:</p><input type="number" name="servings" value="1"> 
-            <input type="hidden" name="calories" value="${Math.round(info.labelNutrients.calories.value)}"/><p>Calories: ${Math.round(info.labelNutrients.calories.value)}</p>
+            ${info.labelNutrients.calories ? `<input type="hidden" name="calories" value="${Math.round(info.labelNutrients.calories.value)}"/><p>Calories: ${Math.round(info.labelNutrients.calories.value)}</p>`:`<p>No calorie information provided! Please add: </p><input type="number" name="calories" value="0">`}
             ${info.labelNutrients.fat ? `<input type="hidden" name="fat" value="${Math.round(info.labelNutrients.fat.value)}"/><p>Total Fat: ${Math.round(info.labelNutrients.fat.value)}g</p>`:""}
             ${info.labelNutrients.saturatedFat ? `<input type="hidden" name="satfat" value="${Math.round(info.labelNutrients.saturatedFat.value)}"/><p>Saturated Fat: ${Math.round(info.labelNutrients.saturatedFat.value)}g</p>`:""}
             ${info.labelNutrients.transFat ? `<input type="hidden" name="transfat" value="${Math.round(info.labelNutrients.transFat.value)}"/><p>Trans Fat: ${Math.round(info.labelNutrients.transFat.value)}g</p>`:""}
