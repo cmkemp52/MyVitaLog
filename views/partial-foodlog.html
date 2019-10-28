@@ -1,13 +1,13 @@
 <div id="background">
     <section class="tile is-parent">
-        <div class="tile is-child is-5">
+        <div class="tile is-child is-6 has-text-centered">
+            <p class="title has-text-centered">Today's Logs:</p>
             <form action="/foodlog/search" method="POST">
-                <label>Add Entry:
+                <label>New Entry:
                     <input type="text" name="search">
                 </label>
                 <button type="submit">Search</button>
             </form>
-            <p class="title has-text-centered">Today's Logs:</p>
             <div class="content has-text-centered">
                 <ul id="loglist">
                 ${logData.map(food => `
@@ -21,7 +21,7 @@
         <div class="tile is-child">
             <h1 class="title">Today you should aim for:</h1>
             ${recommend.calories>1 ?`<p>You should eat ${recommend.calories} more calories!</p>`
-            :recommend.calories<0 ? `<p>You've gone over your recommended calories by ${Math.abs(recommend.calores)}</p>`:""}
+            :recommend.calories<0 ? `<p>You've gone over your recommended calories by ${Math.abs(recommend.calories)}</p>`:""}
             ${recommend.fat>1 ?`<p>You should try not to eat more than ${recommend.fat} grams of fat!</p>`
             :recommend.fat<0 ? `<p>You've gone over your recommended fat by ${Math.abs(recommend.fat)} grams!</p>`:""}
             ${recommend.cholesterol>1 ?`<p>You should try not to eat more than ${recommend.cholesterol} mg of cholesterol!</p>`
