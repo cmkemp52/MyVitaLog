@@ -1,22 +1,32 @@
-<section>
-    <form action="/foodlog/search" method="POST">
-        <label>Add Entry:
-            <input type="text" name="search">
-        </label>
-        <button type="submit">Search</button>
-    </form>
-    <hr>
-    ${searchResults ? `
-        <ul>
-        ${searchResults.map(food => `
-            <li><form action="/foodlog/nutritiondata" method="POST">
-                <h2>${food.description}</h2>${food.brandOwner ? `<p>${food.brandOwner}</p>`:"<p>Unbranded</p>"}</li>
-                <input type="hidden" name="id" value="${food.fdcId}"/>
-                <button type="submit">Food info</button>
+<section id="background"  >
+    <div id="searchAddContent">
+        <div id="searchAddSearch">
+            <form action="/foodlog/search" method="POST">
+                <label>New Search:
+                    <input type="text" name="search" id="searchAddInput">
+                </label>
+                <button type="submit"  class="button is-success">Search</button>
             </form>
-            `).join('')}
-        </ul>
-    `:""}
+        </div>
+        ${searchResults ? `
+            <div id="searchAddResultsLayout">
+            <div id="searchAddResults">
+            ${searchResults.map(food => `
+                ${food.brandOwner ? `
+                <div id="searchResult"><form action="/foodlog/nutritiondata" method="POST" id="searchForm">
+                    <h2>${food.description}</h2><p>${food.brandOwner}</p></li>
+                    <input type="hidden" name="id" value="${food.fdcId}"/>
+                    <button type="submit" class="button is-success">Food info</button>
+                </form></div>
+                `:""}
+                `).join('')}
+            </div>
+            <div id="searchAddInstructions">
+                <h3 class="title">Here are your search results!</h3>
+                <p>Please select the item that best matches your search!</p>
+            </div>
+            </div>
+        `:""}
     ${info ? `
         <form action="/foodlog/log" method="POST">
             <input type="hidden" name="name" value="${info.description}"/><h1>${info.description}</h1>
@@ -24,7 +34,7 @@
             <p>Serving size: ${info.householdServingFullText}</p>
             <button type="submit">Add to Log</button>
             <p>Servings to add to log:</p><input type="number" name="servings" value="1"> 
-            <input type="hidden" name="calories" value="${Math.round(info.labelNutrients.calories.value)}"/><p>Calories: ${Math.round(info.labelNutrients.calories.value)}</p>
+            ${info.labelNutrients.calories ? `<input type="hidden" name="calories" value="${Math.round(info.labelNutrients.calories.value)}"/><p>Calories: ${Math.round(info.labelNutrients.calories.value)}</p>`:`<p>No calorie information provided! Please add: </p><input type="number" name="calories" value="0">`}
             ${info.labelNutrients.fat ? `<input type="hidden" name="fat" value="${Math.round(info.labelNutrients.fat.value)}"/><p>Total Fat: ${Math.round(info.labelNutrients.fat.value)}g</p>`:""}
             ${info.labelNutrients.saturatedFat ? `<input type="hidden" name="satfat" value="${Math.round(info.labelNutrients.saturatedFat.value)}"/><p>Saturated Fat: ${Math.round(info.labelNutrients.saturatedFat.value)}g</p>`:""}
             ${info.labelNutrients.transFat ? `<input type="hidden" name="transfat" value="${Math.round(info.labelNutrients.transFat.value)}"/><p>Trans Fat: ${Math.round(info.labelNutrients.transFat.value)}g</p>`:""}
@@ -41,4 +51,5 @@
             
         </form>
     `:""}
+    </div>
 </section>

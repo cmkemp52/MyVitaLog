@@ -42,7 +42,6 @@ router.post("/login", async(req,res,next)=>{
   const{email_address,password}=req.body;
   const user=new UserModel(null,email_address,password);
   const response = await user.login();
-  console.log(response);
   if(!!response.isValid){
     const account_id = response.account_id;
     req.session.is_logged_in = true;
