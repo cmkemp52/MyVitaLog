@@ -2,23 +2,29 @@
     <div id="searchAddContent">
         <div id="searchAddSearch">
             <form action="/foodlog/search" method="POST">
-                <label>Add Entry:
-                    <input type="text" name="search">
+                <label>New Search:
+                    <input type="text" name="search" id="searchAddInput">
                 </label>
                 <button type="submit">Search</button>
             </form>
         </div>
         ${searchResults ? `
-            <div >
+            <div id="searchAddResultsLayout">
+            <div id="searchAddResults">
             ${searchResults.map(food => `
                 ${food.brandOwner ? `
-                <div ><form action="/foodlog/nutritiondata" method="POST">
+                <div id="searchResult"><form action="/foodlog/nutritiondata" method="POST">
                     <h2>${food.description}</h2><p>${food.brandOwner}</p></li>
                     <input type="hidden" name="id" value="${food.fdcId}"/>
                     <button type="submit">Food info</button>
                 </form></div>
                 `:""}
                 `).join('')}
+            </div>
+            <div id="searchAddInstructions">
+                <h3 class="title">Here are your search results!</h3>
+                <p>Please select the item that best matches your search!</p>
+            </div>
             </div>
         `:""}
     ${info ? `
