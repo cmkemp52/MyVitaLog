@@ -5,29 +5,12 @@
         </label>
         <button type="submit">Search</button>
     </form>
-    <hr>
-    ${searchResults ? `
-        <ul>
-        ${searchResults.map(food => `
-            <li><form action="/foodlog/nutritiondata" method="POST">
-                <h2>${food.description}</h2><p>${food.brandOwner}</p></li>
-                <input type="hidden" name="id" value="${food.fdcId}"/>
-                <button type="submit">Food info</button>
-            </form>
-            `).join('')}
-        </ul>
-    `:""}
-    ${info ? `
-        <h1>${info.description}</h1>
-        <h3>${info.brandOwner}</h3>
-        <h6>${info.ingredients}</h6>
-        <form action="/foodlog/log" method="POST">
-            <button type="submit">Add to Log</button>
-        </form>
-        <ul>
-        ${info.foodNutrients.map(nutrient => `
-            <li><h2>${nutrient.nutrient.name}</h2><p>${nutrient.amount} ${nutrient.nutrient.unitName}</p></li>
-            `).join('')}
-        </ul>
-    `:""}
+    <h1>Your last 24 hours:</h1>
+    <ul>
+    ${logData.map(food => `
+        <li>
+            <h2>${food.name} - ${food.brand}</h2><p>calories: ${food.calories}</p>
+        </li>
+        `).join('')}
+    </ul>
 </section>
