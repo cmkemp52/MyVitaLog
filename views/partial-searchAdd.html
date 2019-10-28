@@ -1,24 +1,26 @@
-<section>
-    <form action="/foodlog/search" method="POST">
-        <label>Add Entry:
-            <input type="text" name="search">
-        </label>
-        <button type="submit">Search</button>
-    </form>
-    <hr>
-    ${searchResults ? `
-        <ul>
-        ${searchResults.map(food => `
-            ${food.brandOwner ? `
-            <li><form action="/foodlog/nutritiondata" method="POST">
-                <h2>${food.description}</h2><p>${food.brandOwner}</p></li>
-                <input type="hidden" name="id" value="${food.fdcId}"/>
-                <button type="submit">Food info</button>
-            </form></li>
-            `:""}
-            `).join('')}
-        </ul>
-    `:""}
+<section id="background">
+    <div class="tile is-ancestor">
+        <div class="tile">
+            <form action="/foodlog/search" method="POST">
+                <label>Add Entry:
+                    <input type="text" name="search">
+                </label>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        ${searchResults ? `
+            <div class="tile is-parent is-vertical">
+            ${searchResults.map(food => `
+                ${food.brandOwner ? `
+                <div class="tile is-4"><form action="/foodlog/nutritiondata" method="POST">
+                    <h2>${food.description}</h2><p>${food.brandOwner}</p></li>
+                    <input type="hidden" name="id" value="${food.fdcId}"/>
+                    <button type="submit">Food info</button>
+                </form></div>
+                `:""}
+                `).join('')}
+            </div>
+        `:""}
     ${info ? `
         <form action="/foodlog/log" method="POST">
             <input type="hidden" name="name" value="${info.description}"/><h1>${info.description}</h1>
@@ -43,4 +45,5 @@
             
         </form>
     `:""}
+    </div>
 </section>
