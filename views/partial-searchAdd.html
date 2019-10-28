@@ -9,11 +9,13 @@
     ${searchResults ? `
         <ul>
         ${searchResults.map(food => `
+            ${food.brandOwner ? `
             <li><form action="/foodlog/nutritiondata" method="POST">
-                <h2>${food.description}</h2>${food.brandOwner ? `<p>${food.brandOwner}</p>`:"<p>Unbranded</p>"}</li>
+                <h2>${food.description}</h2><p>${food.brandOwner}</p></li>
                 <input type="hidden" name="id" value="${food.fdcId}"/>
                 <button type="submit">Food info</button>
-            </form>
+            </form></li>
+            `:""}
             `).join('')}
         </ul>
     `:""}

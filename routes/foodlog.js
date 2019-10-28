@@ -3,18 +3,19 @@ const express = require('express'),
     foodSearch = require('../models/searchModel'),
     foodData = require('../models/nutritionModel'),
     logAdd = require('../models/logAdd'),
+    recommend = require('../models/recommend.js'),
     pullLog = require('../models/pullLog');
 
 
 router.get('/', async(req, res, next)=>{
     todayLogs = await pullLog(req.session.account_id, 1);
-    console.log(todayLogs);
-    todayLogs.map(food => console.log(food));
+    todayRecommend = recommend(todayLogs, 1);
     res.render('template',{
         locals: {
         title: 'Food Log',
         isLoggedIn: req.session.is_logged_in,
-        logData: todayLogs
+        logData: todayLogs,
+        recommend: todayRecommend
         },
         partials:{
         partial: 'partial-foodlog'
