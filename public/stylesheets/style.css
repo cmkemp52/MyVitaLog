@@ -9,6 +9,7 @@
     background-color: greenyellow;
 }
 #searchAddSearch{
+    padding: 5px;
     display: flex;
     justify-content: center;
     width: 100%;
