@@ -2,16 +2,19 @@ const express = require('express'),
     router = express.Router(),
     foodSearch = require('../models/searchModel'),
     foodData = require('../models/nutritionModel'),
-    logAdd = require('../models/logAdd');
+    logAdd = require('../models/logAdd'),
+    pullLog = require('../models/pullLog');
 
 
 router.get('/', async(req, res, next)=>{
+    todayLogs = await pullLog(req.session.account_id, 1);
+    console.log(todayLogs);
+    todayLogs.map(food => console.log(food));
     res.render('template',{
         locals: {
         title: 'Food Log',
-        searchResults: false,
-        info: false,
-        isLoggedIn: req.session.is_logged_in
+        isLoggedIn: req.session.is_logged_in,
+        logData: todayLogs
         },
         partials:{
         partial: 'partial-foodlog'
@@ -30,7 +33,7 @@ router.post("/search", async(req,res,next)=>{
         isLoggedIn: req.session.is_logged_in
         },
         partials:{
-        partial: 'partial-foodlog'
+        partial: 'partial-searchAdd'
         }
     });
 });
@@ -46,14 +49,14 @@ router.post("/nutritiondata", async(req,res,next)=>{
         isLoggedIn: req.session.is_logged_in
         },
         partials:{
-        partial: 'partial-foodlog'
+        partial: 'partial-searchAdd'
         }
     });
 });
 
 router.post("/log", async(req,res,next)=>{
     logAdd(Object.entries(req.body), req.session.account_id);
-    res.status(200).redirect("/");
+    res.status(200).redirect("/foodlog");
 });
 
 module.exports = router;

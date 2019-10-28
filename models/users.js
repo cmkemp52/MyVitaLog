@@ -34,19 +34,19 @@ class User{
                 id serial primary key,
                 name varchar(300),
                 brand varchar (300),
-                loggedAt TIMESTAMP DEFAULT (CURRENT_TIMESTAMP),
-                calories float,
-                fat float,
-                satfat float,
-                transfat float,
-                cholesterol float,
-                sodium float,
-                carbohydrates float,
-                fiber float,
-                sugars float,
-                protein float,
-                calcium float,
-                iron float
+                loggedOn DATE DEFAULT (CURRENT_DATE),
+                calories float DEFAULT 0,
+                fat float DEFAULT 0,
+                satfat float DEFAULT 0,
+                transfat float DEFAULT 0,
+                cholesterol float DEFAULT 0,
+                sodium float DEFAULT 0,
+                carbohydrates float DEFAULT 0,
+                fiber float DEFAULT 0,
+                sugars float DEFAULT 0,
+                protein float DEFAULT 0,
+                calcium float DEFAULT 0,
+                iron float DEFAULT 0
             );`,[]);
             console.log(tableadd);
             return response;
