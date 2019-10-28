@@ -5,7 +5,7 @@
                 <label>New Search:
                     <input type="text" name="search" id="searchAddInput">
                 </label>
-                <button type="submit">Search</button>
+                <button type="submit"  class="button is-success">Search</button>
             </form>
         </div>
         ${searchResults ? `
@@ -16,7 +16,7 @@
                 <div id="searchResult"><form action="/foodlog/nutritiondata" method="POST" id="searchForm">
                     <h2>${food.description}</h2><p>${food.brandOwner}</p></li>
                     <input type="hidden" name="id" value="${food.fdcId}"/>
-                    <button type="submit">Food info</button>
+                    <button type="submit" class="button is-success">Food info</button>
                 </form></div>
                 `:""}
                 `).join('')}

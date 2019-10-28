@@ -6,18 +6,20 @@
 }
 
 #searchAddContent{
-    background-color: greenyellow;
+    background-color: white;
+    border-top: solid 1px black;
 }
 #searchAddSearch{
+    margin-top:5px;
     padding: 5px;
     display: flex;
     justify-content: center;
     width: 100%;
-    font-size: 20px;
+    font-size: 24px;
 }
 #searchAddInput{
     width: 150px;
-    height: 30px;
+    height: 40px;
     font-size: 20px;
 }
 #searchAddResultsLayout{
@@ -35,7 +37,9 @@
     padding:5px;
     margin: 3px;
     margin-bottom: 10px;
-    background-color: lightgray;
+    background-color:white;
+    color: rgb(1, 53, 1);
+    font-weight:bold;
     border: solid 2px black;
     border-radius: 10px;
 }
