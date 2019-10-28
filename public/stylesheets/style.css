@@ -4,3 +4,12 @@
 #loglist {
     list-style-type: none;
 }
+
+#searchAddContent{
+    background-color: hotpink;
+}
+#searchAddSearch{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}

@@ -6,7 +6,6 @@ const express = require('express'),
     recommend = require('../models/recommend.js'),
     pullLog = require('../models/pullLog');
 
-
 router.get('/', async(req, res, next)=>{
     todayLogs = await pullLog(req.session.account_id, 1);
     todayRecommend = recommend(todayLogs, 1);
@@ -38,6 +37,8 @@ router.post("/search", async(req,res,next)=>{
         }
     });
 });
+
+
 
 router.post("/nutritiondata", async(req,res,next)=>{
     const {id} = req.body;

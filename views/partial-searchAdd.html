@@ -1,6 +1,6 @@
-<section id="background">
-    <div class="tile is-ancestor">
-        <div class="tile">
+<section id="background"  >
+    <div id="searchAddContent">
+        <div id="searchAddSearch">
             <form action="/foodlog/search" method="POST">
                 <label>Add Entry:
                     <input type="text" name="search">
@@ -9,10 +9,10 @@
             </form>
         </div>
         ${searchResults ? `
-            <div class="tile is-parent is-vertical">
+            <div >
             ${searchResults.map(food => `
                 ${food.brandOwner ? `
-                <div class="tile is-4"><form action="/foodlog/nutritiondata" method="POST">
+                <div ><form action="/foodlog/nutritiondata" method="POST">
                     <h2>${food.description}</h2><p>${food.brandOwner}</p></li>
                     <input type="hidden" name="id" value="${food.fdcId}"/>
                     <button type="submit">Food info</button>
