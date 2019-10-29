@@ -8,14 +8,14 @@
                 <button type="submit"  class="button is-success">Search</button>
             </form>
         </div>
-        ${searchResults ? `
+        ${searchResults1 ? `
             <div id="searchAddResultsLayout">
                 <div id="searchAddInstructions">
                     <h3 class="title">Here are your search results!</h3>
                     <p>Please select the item that best matches your search!</p>
                 </div>
             <div id="searchAddResults">
-            ${searchResults.map(food => `
+            ${searchResults1.map(food => `
                 ${food.brandOwner ? `
                 <div id="searchResult"><form action="/foodlog/nutritiondata" method="POST" id="searchForm">
                     <h2>${food.description}</h2><p>${food.brandOwner}</p></li>
@@ -24,6 +24,26 @@
                 </form></div>
                 `:""}
                 `).join('')}
+            ${searchResults2 ? `${searchResults2.map(food => `
+                ${food.brandOwner ? `
+                <div id="searchResult"><form action="/foodlog/nutritiondata" method="POST" id="searchForm">
+                    <h2>${food.description}</h2><p>${food.brandOwner}</p></li>
+                    <input type="hidden" name="id" value="${food.fdcId}"/>
+                    <button type="submit" class="button is-success">Food info</button>
+                </form></div>
+                `:""}
+                `).join('')}
+                `:""}
+            ${searchResults3 ? `${searchResults3.map(food => `
+                ${food.brandOwner ? `
+                <div id="searchResult"><form action="/foodlog/nutritiondata" method="POST" id="searchForm">
+                    <h2>${food.description}</h2><p>${food.brandOwner}</p></li>
+                    <input type="hidden" name="id" value="${food.fdcId}"/>
+                    <button type="submit" class="button is-success">Food info</button>
+                </form></div>
+                `:""}
+                `).join('')}
+                `:""}
             </div>
             </div>
         `:""}
@@ -32,9 +52,9 @@
             <div id="addToLogDiv">
                 <div>
                     <input type="hidden" name="name"  value="${info.description}"/><h1 id="nutritionTitle">${info.description}</h1>
-                    <input type="hidden" name="brand" value="${info.brandOwner}"/><h3>${info.brandOwner}</h3>
-                    <p>Servings to add to log:</p><input type="number" name="servings" value="1"> 
-                    <button type="submit">Add to Log</button>
+                    <input type="hidden" name="brand" value="${info.brandOwner}"/><p id="midsizedText">${info.brandOwner}</p>
+                    <p id="midsizedText">Servings to add to log:</p><input type="number" id="searchAddInput" name="servings" value="1"> 
+                    <button type="submit" class="button is-success">Add to Log</button>
                 </div>
             </div>
             <div id="nutritionSide">
@@ -42,7 +62,7 @@
                     <div id="nutritionFacts">
                         <p id="nutritionTitle">Nutrition Facts</p>
                         <div id="servingDiv">
-                            <p>Serving size:</p><p>${info.householdServingFullText}</p>
+                            <p>Serving size:</p><p>${info.householdServingFullText.toLowerCase()}</p>
                         </div>
                         ${info.labelNutrients.calories ? `<div id="caloriesDiv"><input type="hidden" name="calories" value="${Math.round(info.labelNutrients.calories.value)}"/><p>Calories:</p><p> ${Math.round(info.labelNutrients.calories.value)}</p></div>`:`<div id="noCalories"><p>No calorie information provided! Please add: </p><input type="number" name="calories" style="font-size:20px;" value="0"></div>`}
                         ${info.labelNutrients.fat ? `<div id="nutrientDiv"><input type="hidden" name="fat" value="${Math.round(info.labelNutrients.fat.value)}"/><p>Total Fat:</p><p> ${Math.round(info.labelNutrients.fat.value)}g</p></div>`:""}
@@ -58,7 +78,7 @@
                         ${info.labelNutrients.iron ? `<div id="nutrientDiv"><input type="hidden" name="iron" value="${Math.round(info.labelNutrients.iron.value)}"/><p>Iron:</p><p> ${Math.round(info.labelNutrients.iron.value)}mg</p></div>`:""}
                     </div>
                 </div>
-                <p>Ingredients:</p>
+                <p id="midsizedText">Ingredients:</p>
                 <p>${info.ingredients}</p>
             </div>
         </form>

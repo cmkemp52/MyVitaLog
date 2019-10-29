@@ -24,11 +24,13 @@ router.get('/', async(req, res, next)=>{
 
 router.post("/search", async(req,res,next)=>{
     const {search} = req.body;
-    const searchRes = await foodSearch(search);
+    const {results1, results2, results3} = await foodSearch(search);
     res.render('template',{
         locals: {
         title: 'Food Log',
-        searchResults: searchRes,
+        searchResults1: results1,
+        searchResults2: results2,
+        searchResults3: results3,
         info: false,
         isLoggedIn: req.session.is_logged_in
         },
@@ -46,7 +48,9 @@ router.post("/nutritiondata", async(req,res,next)=>{
     res.render('template',{
         locals: {
         title: 'Food Log',
-        searchResults: false,
+        searchResults1: false,
+        searchResults2: false,
+        searchResults3: false,
         info: foodInfo,
         isLoggedIn: req.session.is_logged_in
         },
