@@ -32,9 +32,9 @@
             <div id="addToLogDiv">
                 <div>
                     <input type="hidden" name="name"  value="${info.description}"/><h1 id="nutritionTitle">${info.description}</h1>
-                    <input type="hidden" name="brand" value="${info.brandOwner}"/><h3>${info.brandOwner}</h3>
-                    <p>Servings to add to log:</p><input type="number" name="servings" value="1"> 
-                    <button type="submit">Add to Log</button>
+                    <input type="hidden" name="brand" value="${info.brandOwner}"/><p id="midsizedText">${info.brandOwner}</p>
+                    <p id="midsizedText">Servings to add to log:</p><input type="number" id="searchAddInput" name="servings" value="1"> 
+                    <button type="submit" class="button is-success">Add to Log</button>
                 </div>
             </div>
             <div id="nutritionSide">
@@ -58,7 +58,7 @@
                         ${info.labelNutrients.iron ? `<div id="nutrientDiv"><input type="hidden" name="iron" value="${Math.round(info.labelNutrients.iron.value)}"/><p>Iron:</p><p> ${Math.round(info.labelNutrients.iron.value)}mg</p></div>`:""}
                     </div>
                 </div>
-                <p>Ingredients:</p>
+                <p id="midsizedText">Ingredients:</p>
                 <p>${info.ingredients}</p>
             </div>
         </form>
