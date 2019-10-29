@@ -51,3 +51,78 @@
 #searchAddInstructions{
     padding: 15px;
 }
+
+#searchResultForm{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#addToLogDiv{
+    display:flex;
+    justify-content: center;
+}
+#nutritionSide{
+    padding: 10px;
+}
+
+#nutritionContainer{
+    display:flex;
+    justify-content: center;
+}
+
+#nutritionFacts{
+    width: 300px;
+    border: solid 2px black;
+    padding: 4px;
+}
+
+#nutritionTitle{
+    font-weight: bolder;
+    font-size: 26px;
+    margin: 2px;
+    border-bottom: solid 1px black;
+}
+
+#servingDiv{
+    font-weight: bold;
+    font-size:17px;
+    margin: 2px;
+    border-bottom: solid 10px black;
+    display:flex;
+    justify-content: space-between;
+}
+#caloriesDiv{
+    font-weight: bold;
+    font-size:26px;
+    margin: 2px;
+    border-bottom: solid 7px black;
+    display:flex;
+    justify-content: space-between;
+}
+#noCalories{
+    font-weight: bold;
+    font-size:18px;
+    margin: 2px;
+    border-bottom: solid 7px black;
+}
+#nutrientDiv{
+    font-size:14px;
+    font-weight:bold;
+    border-bottom: solid 1px black;
+    display:flex;
+    justify-content: space-between;
+}
+#nutrientDivProtein{
+    font-size:14px;
+    font-weight:bold;
+    border-bottom: solid 5px black;
+    display:flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+    #searchResultForm{
+        display: grid;
+        grid-template-columns: 100%;
+    }
+}
