@@ -24,7 +24,7 @@
 }
 #searchAddResultsLayout{
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 40% 60%;
 }
 #searchAddResults{
     height: 85vh;
@@ -122,6 +122,10 @@
 
 @media screen and (max-width: 768px) {
     #searchResultForm{
+        display: grid;
+        grid-template-columns: 100%;
+    }
+    #searchAddResultsLayout{
         display: grid;
         grid-template-columns: 100%;
     }

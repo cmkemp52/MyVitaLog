@@ -10,6 +10,10 @@
         </div>
         ${searchResults ? `
             <div id="searchAddResultsLayout">
+                <div id="searchAddInstructions">
+                    <h3 class="title">Here are your search results!</h3>
+                    <p>Please select the item that best matches your search!</p>
+                </div>
             <div id="searchAddResults">
             ${searchResults.map(food => `
                 ${food.brandOwner ? `
@@ -20,10 +24,6 @@
                 </form></div>
                 `:""}
                 `).join('')}
-            </div>
-            <div id="searchAddInstructions">
-                <h3 class="title">Here are your search results!</h3>
-                <p>Please select the item that best matches your search!</p>
             </div>
             </div>
         `:""}
