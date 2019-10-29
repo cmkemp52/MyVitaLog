@@ -1,6 +1,4 @@
 function recommend (data,days){
-    console.log(data);
-    console.log("this is ", 2000*days);
     let recommendations = {};
     recommendations.calories = 2000*days;
     recommendations.fat = 78*days;
@@ -28,8 +26,6 @@ function recommend (data,days){
         recommendations.calcium = recommendations.calcium - item.calcium;
         recommendations.iron = recommendations.iron - item.iron;
     });
-    console.log(recommendations);
-    
     return recommendations;
 }
 
