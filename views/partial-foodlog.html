@@ -1,45 +1,92 @@
-<div id="background">
-    <section class="tile is-parent">
-        <div class="tile is-child is-6 has-text-centered">
-            <p class="title has-text-centered">Today's Logs:</p>
-            <form action="/foodlog/search" method="POST">
-                <label>New Entry:
-                    <input type="text" name="search">
-                </label>
-                <button type="submit">Search</button>
-            </form>
-            <div class="content has-text-centered">
-                <ul id="loglist">
-                ${logData.map(food => `
-                    <li>
-                        <h4>${food.name}: ${food.calories} calories</h4><h5>- ${food.brand}</h5>
-                    </li>
-                    `).join('')}
-                </ul>
+<section class="hero is-success has-text-centered">
+    <div class="hero-body">
+        <h1 class="title">VitaLog</h1>
+        <h4 class="subtitle">Let's Get Trackin'</h4>
+    </div>
+</section>
+<br>
+<section class="tile is-ancestor box">
+        <div class="tile is-parent has-text-centered is-vertical">
+            <div class="tile is-child box">
+                <div class="content">
+                    
+                    <div class="field">
+                        <div class="control">
+                            <form action="/foodlog/search" method="POST" class="form">
+                                <label class="label">New Entry:
+                                    <input type="text" name="search" class="input">
+                                </label>
+                                <button class="button is-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tile is-child box">
+                <div class="content">
+                    <p class="title">Today's Log:</p>
+                    <table class="table is-bordered is-hoverable is-striped is-fullwidth">
+                        <tr class="is-selected">
+                            <th>Brand Name</th>
+                            <th>Food Item</th>
+                            <th>Calories</th>
+                        </tr>
+                        ${logData.map(food => `
+                            <tr>
+                                <td>${food.brand}</td>
+                                <td>${food.name}</td>
+                                <td>${food.calories}</td>
+                            </tr>
+                            `).join('')}
+                    </table>
+                </div>
             </div>
         </div>
-        <div class="tile is-child">
-            <h1 class="title">Today you should aim for:</h1>
-            ${recommend.calories>1 ?`<p>You should eat ${recommend.calories} more calories!</p>`
-            :recommend.calories<0 ? `<p>You've gone over your recommended calories by ${Math.abs(recommend.calories)}</p>`:""}
-            ${recommend.fat>1 ?`<p>You should try not to eat more than ${recommend.fat} grams of fat!</p>`
-            :recommend.fat<0 ? `<p>You've gone over your recommended fat by ${Math.abs(recommend.fat)} grams!</p>`:""}
-            ${recommend.cholesterol>1 ?`<p>You should try not to eat more than ${recommend.cholesterol} mg of cholesterol!</p>`
-            :recommend.cholesterol<0 ? `<p>You've gone over your recommended cholesterol by ${Math.abs(recommend.cholesterol)} mg!</p>`:""}
-            ${recommend.sodium>1 ?`<p>You should try not to eat more than ${recommend.sodium} mg of sodium!</p>`
-            :recommend.sodium<0 ? `<p>You've gone over your recommended sodium by ${Math.abs(recommend.sodium)} mg!</p>`:""}
-            ${recommend.carbohydrates>1 ?`<p>You should try not to eat more than ${recommend.carbohydrates} grams of carbohydrates!</p>`
-            :recommend.carbohydrates<0 ? `<p>You've gone over your recommended carbohydrates by ${Math.abs(recommend.carbohydrates)} grams!</p>`:""}
-            ${recommend.fiber>1 ?`<p>You should aim for at least ${recommend.fiber} grams of fiber!</p>`
-            :recommend.fiber<0 ? `<p>You've eaten ${Math.abs(recommend.fiber)} extra grams of fiber! Nice!</p>`:""}
-            ${recommend.sugars>1 ?`<p>You should try not to eat more than ${recommend.sugars} grams of sugars!</p>`
-            :recommend.sugars<0 ? `<p>You've gone over your recommended sugars by ${Math.abs(recommend.sugars)} grams!</p>`:""}
-            ${recommend.protein>1 ?`<p>You should aim for at least ${recommend.protein} grams of protein!</p>`
-            :recommend.protein<0 ? `<p>You've eaten ${Math.abs(recommend.protein)} extra grams of protein! Nice!</p>`:""}
-            ${recommend.calcium>1 ?`<p>You should aim for at least ${recommend.calcium} mgs of calcium!</p>`
-            :recommend.calcium<0 ? `<p>You've eaten ${Math.abs(recommend.calcium)} extra mgs of calcium! Nice!</p>`:""}
-            ${recommend.iron>1 ?`<p>You should aim for at least ${recommend.iron} mgs of iron!</p>`
-            :recommend.iron<0 ? `<p>You've eaten ${Math.abs(recommend.iron)} extra mgs of iron! Nice!</p>`:""}
+        <div class="tile is-parent">
+            <div class="tile is-child">
+                <table class="table is-bordered is-hoverable">
+                    <th class="is-selected">Nutritional Recommendations:</th>
+                        <tr>
+                            <td>${recommend.calories>1 ?`<p>You should eat ${recommend.calories} more calories!</p>`
+                    :recommend.calories<0 ? `<p>You've gone over your recommended calories by ${Math.abs(recommend.calories)}</p>`:""}</td>
+                        </tr>
+                        <tr>
+                            <td>${recommend.fat>1 ?`<p>You should try not to eat more than ${recommend.fat} grams of fat!</p>`
+                    :recommend.fat<0 ? `<p>You've gone over your recommended fat by ${Math.abs(recommend.fat)} grams!</p>`:""}</td>
+                        </tr>
+                        <tr>
+                            <td>${recommend.cholesterol>1 ?`<p>You should try not to eat more than ${recommend.cholesterol} mg of cholesterol!</p>`
+                    :recommend.cholesterol<0 ? `<p>You've gone over your recommended cholesterol by ${Math.abs(recommend.cholesterol)} mg!</p>`:""}</td>
+                        </tr>
+                        <tr>
+                            <td>${recommend.sodium>1 ?`<p>You should try not to eat more than ${recommend.sodium} mg of sodium!</p>`
+                    :recommend.sodium<0 ? `<p>You've gone over your recommended sodium by ${Math.abs(recommend.sodium)} mg!</p>`:""}</td>
+                        </tr>
+                        <tr>
+                            <td>${recommend.carbohydrates>1 ?`<p>You should try not to eat more than ${recommend.carbohydrates} grams of carbohydrates!</p>`
+                    :recommend.carbohydrates<0 ? `<p>You've gone over your recommended carbohydrates by ${Math.abs(recommend.carbohydrates)} grams!</p>`:""}</td>
+                        </tr>
+                        <tr>
+                            <td>${recommend.fiber>1 ?`<p>You should aim for at least ${recommend.fiber} grams of fiber!</p>`
+                    :recommend.fiber<0 ? `<p>You've eaten ${Math.abs(recommend.fiber)} extra grams of fiber! Nice!</p>`:""}</td>
+                        </tr>
+                        <tr>
+                            <td>${recommend.sugars>1 ?`<p>You should try not to eat more than ${recommend.sugars} grams of sugars!</p>`
+                    :recommend.sugars<0 ? `<p>You've gone over your recommended sugars by ${Math.abs(recommend.sugars)} grams!</p>`:""}</td>
+                        </tr>
+                        <tr>
+                            <td>${recommend.protein>1 ?`<p>You should aim for at least ${recommend.protein} grams of protein!</p>`
+                    :recommend.protein<0 ? `<p>You've eaten ${Math.abs(recommend.protein)} extra grams of protein! Nice!</p>`:""}</td>
+                        </tr>
+                        <tr>
+                            <td>${recommend.calcium>1 ?`<p>You should aim for at least ${recommend.calcium} mgs of calcium!</p>`
+                    :recommend.calcium<0 ? `<p>You've eaten ${Math.abs(recommend.calcium)} extra mgs of calcium! Nice!</p>`:""}</td>
+                        </tr>
+                        <tr>
+                            <td>${recommend.iron>1 ?`<p>You should aim for at least ${recommend.iron} mgs of iron!</p>`
+                    :recommend.iron<0 ? `<p>You've eaten ${Math.abs(recommend.iron)} extra mgs of iron! Nice!</p>`:""}</td>
+                    </tr>
+                </table>
+            </div>
         </div>
-    </section>
-</div>
+</section>
