@@ -8,14 +8,14 @@
                 <button type="submit"  class="button is-success">Search</button>
             </form>
         </div>
-        ${searchResults ? `
+        ${searchResults1 ? `
             <div id="searchAddResultsLayout">
                 <div id="searchAddInstructions">
                     <h3 class="title">Here are your search results!</h3>
                     <p>Please select the item that best matches your search!</p>
                 </div>
             <div id="searchAddResults">
-            ${searchResults.map(food => `
+            ${searchResults1.map(food => `
                 ${food.brandOwner ? `
                 <div id="searchResult"><form action="/foodlog/nutritiondata" method="POST" id="searchForm">
                     <h2>${food.description}</h2><p>${food.brandOwner}</p></li>
@@ -24,6 +24,26 @@
                 </form></div>
                 `:""}
                 `).join('')}
+            ${searchResults2 ? `${searchResults2.map(food => `
+                ${food.brandOwner ? `
+                <div id="searchResult"><form action="/foodlog/nutritiondata" method="POST" id="searchForm">
+                    <h2>${food.description}</h2><p>${food.brandOwner}</p></li>
+                    <input type="hidden" name="id" value="${food.fdcId}"/>
+                    <button type="submit" class="button is-success">Food info</button>
+                </form></div>
+                `:""}
+                `).join('')}
+                `:""}
+            ${searchResults3 ? `${searchResults3.map(food => `
+                ${food.brandOwner ? `
+                <div id="searchResult"><form action="/foodlog/nutritiondata" method="POST" id="searchForm">
+                    <h2>${food.description}</h2><p>${food.brandOwner}</p></li>
+                    <input type="hidden" name="id" value="${food.fdcId}"/>
+                    <button type="submit" class="button is-success">Food info</button>
+                </form></div>
+                `:""}
+                `).join('')}
+                `:""}
             </div>
             </div>
         `:""}
