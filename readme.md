@@ -1,6 +1,6 @@
 MyVitaLog
 ---
-[Check it out at myvitalog.com]­(#h­ttp­://­www.myvitalog.com)
+[Check it out at myvitalog.com]­(h­ttp­://­www.myvitalog.com)
 
 
 This was created for DigitalCraft's full stack development project.
