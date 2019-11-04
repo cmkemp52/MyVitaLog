@@ -1,7 +1,7 @@
 MyVitaLog
 ---
 
-[Check it out at myvitalog.com]­(h­ttp­s://­www.myvitalog.com)
+[h­ttp­s://­www.myvitalog.com]
 
 
 This was created for DigitalCraft's full stack development project.
