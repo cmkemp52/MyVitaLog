@@ -2,7 +2,8 @@ MyVitaLog
 ---
 
 This was created for DigitalCraft's full stack development project.
-[Check it out at myvitalog.com]­(h­ttp­s://­www.myvitalog.com)
+
+Check it out at myvitalog.com
 
 Allows users to track daily food intake and provides nutrition advice based on foods logged. Nutrition advice is based on a 2000 calorie diet. Food logging capabilities are made possible using the USDA's APIs. 
 
